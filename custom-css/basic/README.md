@@ -1,4 +1,4 @@
-# Login API sample
+# ARTIK Cloud Accounts Sample Code
 
 Implements a small server to serve as a frontend for an application that wants to use the ARTIK Cloud Login.
 
