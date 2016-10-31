@@ -18,14 +18,14 @@ npm install
 ## Configuration
 
 In config.json
-- clientId: your application Client ID
+- clientId: your application ID (client ID)
 - clientSecret: your application Client Secret
-- authUrl: ARTIK Cloud accounts API url (https://accounts.artik.cloud)
-- apiUrl: ARTIK Cloud'API url (https://api.artik.cloud/v1.1)
+- authUrl: ARTIK Cloud Accounts API url (https://accounts.artik.cloud)
+- apiUrl: ARTIK Cloud REST API url (https://api.artik.cloud/v1.1)
 - host: your server hostname (localhost)
 - port: your server port (4444)
 - log: log configuration
-- testCSS: true, to set Form CSS in test mode, false, to use approved CSS (or default CSS if no CSS approved yet)
+- testCSS: true, to set Form CSS in test mode. false, to use approved CSS (or default CSS if no CSS approved yet)
 
 Your application should have:
 - an auth redirect URL set as: “http://localhost:4444/redirect” 
