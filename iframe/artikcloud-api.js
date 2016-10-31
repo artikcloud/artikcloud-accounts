@@ -1,15 +1,15 @@
 var logger = require('winston')
-var https = null // will be set in SamiApi()
+var https = null // will be set in ArtikCloudApi()
 var url = require('url')
 
 // config:
 // {
-//  apiUrl (ex: "https://api.samsungsami.io/V1.1")
+//  apiUrl (ex: "https://api.artik.cloud/V1.1")
 // }
 
-module.exports = SamiApi
+module.exports = ArtikCloudApi
 
-function SamiApi (config) {
+function ArtikCloudApi (config) {
   this._token = null
   this._config = config
 
@@ -22,15 +22,15 @@ function SamiApi (config) {
   https = (this._apiProtocol === 'http') ? require('http') : require('https')
 }
 
-SamiApi.prototype.setToken = function (token) {
+ArtikCloudApi.prototype.setToken = function (token) {
   this._token = token
 }
 
-SamiApi.prototype.getToken = function (token) {
+ArtikCloudApi.prototype.getToken = function (token) {
   return this._token
 }
 
-SamiApi.prototype.getUser = function (onSuccess, onError) {
+ArtikCloudApi.prototype.getUser = function (onSuccess, onError) {
   this._request(
     'GET',
     '/users/self',
@@ -40,7 +40,7 @@ SamiApi.prototype.getUser = function (onSuccess, onError) {
   )
 }
 
-SamiApi.prototype.getUserDevices = function (filter, onSuccess, onError) {
+ArtikCloudApi.prototype.getUserDevices = function (filter, onSuccess, onError) {
   logger.log('debug', 'getUserDevices')
   var local_this = this
   var devices = []
@@ -91,7 +91,7 @@ SamiApi.prototype.getUserDevices = function (filter, onSuccess, onError) {
   }
 }
 
-SamiApi.prototype.createDevice = function (dtid, name, onSuccess, onError) {
+ArtikCloudApi.prototype.createDevice = function (dtid, name, onSuccess, onError) {
   this._request(
     'POST',
     '/devices',
@@ -105,7 +105,7 @@ SamiApi.prototype.createDevice = function (dtid, name, onSuccess, onError) {
   )
 }
 
-SamiApi.prototype.getDevice = function (did, onSuccess, onError) {
+ArtikCloudApi.prototype.getDevice = function (did, onSuccess, onError) {
   this._request(
     'GET',
     '/devices/' + did,
@@ -115,7 +115,7 @@ SamiApi.prototype.getDevice = function (did, onSuccess, onError) {
   )
 }
 
-SamiApi.prototype.getDeviceToken = function (did, onSuccess, onError) {
+ArtikCloudApi.prototype.getDeviceToken = function (did, onSuccess, onError) {
   var localThis = this
   this._request(
     'GET',
@@ -141,7 +141,7 @@ SamiApi.prototype.getDeviceToken = function (did, onSuccess, onError) {
   )
 }
 
-SamiApi.prototype.createDeviceToken = function (did, onSuccess, onError) {
+ArtikCloudApi.prototype.createDeviceToken = function (did, onSuccess, onError) {
   this._request(
     'PUT',
     '/devices/' + did + '/tokens',
@@ -151,7 +151,7 @@ SamiApi.prototype.createDeviceToken = function (did, onSuccess, onError) {
   )
 }
 
-SamiApi.prototype.getErrorMessageFromResponse = function (response) {
+ArtikCloudApi.prototype.getErrorMessageFromResponse = function (response) {
   if ('data' in response && 'code' in response.data && 'message' in response.data) {
     return '[' + response.data.code + '] ' + response.data.message
   } else {
@@ -159,9 +159,9 @@ SamiApi.prototype.getErrorMessageFromResponse = function (response) {
   }
 }
 
-SamiApi.prototype._request = function (method, path, body, onSuccess, onError) {
+ArtikCloudApi.prototype._request = function (method, path, body, onSuccess, onError) {
   logger.log('debug', '===============')
-  logger.log('debug', 'SAMI REQUEST')
+  logger.log('debug', 'ARTIKCLOUD REQUEST')
   logger.log('debug', '  - Method: ' + method)
   logger.log('debug', '  - Endpoint: ' + this._apiProtocol + '://' + this._apiHost + ':' + this._apiPort + this._apiPathPrefix + path)
   if (body) {

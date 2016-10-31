@@ -1,17 +1,17 @@
 var logger = require('winston')
-var https = null // will be set in SamiAuth()
+var https = null // will be set in ArtikCloudAuth()
 var url = require('url')
 var querystring = require('querystring')
 
-module.exports = SamiAuth
+module.exports = ArtikCloudAuth
 
 // config:
 // {
-//  authUrl (ex: "https://accounts.samsungsami.io")
+//  authUrl (ex: "https://accounts.artik.cloud")
 //  clientId
 //  clientSecret
 // }
-function SamiAuth (config) {
+function ArtikCloudAuth (config) {
   this._token = null
   this._config = config
 
@@ -24,15 +24,15 @@ function SamiAuth (config) {
   https = (this._authProtocol === 'http') ? require('http') : require('https')
 }
 
-SamiAuth.prototype.getToken = function () {
+ArtikCloudAuth.prototype.getToken = function () {
   return this._token
 }
 
-SamiAuth.prototype.resetToken = function () {
+ArtikCloudAuth.prototype.resetToken = function () {
   this._token = null
 }
 
-SamiAuth.prototype.getAccessTokenUri = function (redirectUri) {
+ArtikCloudAuth.prototype.getAccessTokenUri = function (redirectUri) {
   logger.info('Get Access token url')
   var scope = 'read,write'
   var responseType = 'code'
@@ -48,7 +48,7 @@ SamiAuth.prototype.getAccessTokenUri = function (redirectUri) {
   return url
 }
 
-SamiAuth.prototype.exchangeCodeVersusToken = function (code, onSuccess, onError) {
+ArtikCloudAuth.prototype.exchangeCodeVersusToken = function (code, onSuccess, onError) {
   logger.info('Exchanging code %s against token', code)
   var formData = {
     'client_id': this._config.clientId,
@@ -77,7 +77,7 @@ SamiAuth.prototype.exchangeCodeVersusToken = function (code, onSuccess, onError)
   )
 }
 
-SamiAuth.prototype.checkToken = function (token, onSuccess, onError) {
+ArtikCloudAuth.prototype.checkToken = function (token, onSuccess, onError) {
   var formData = {
     'token': token
   }
@@ -97,11 +97,11 @@ SamiAuth.prototype.checkToken = function (token, onSuccess, onError) {
   )
 }
 
-SamiAuth.prototype.signout = function (clientId, redirectUri, onSuccess, onError) {
+ArtikCloudAuth.prototype.signout = function (clientId, redirectUri, onSuccess, onError) {
   var formData = {
     'client_id': clientId,
     'redirect_uri': redirectUri,
-    'account_type': 'SAMI'
+    'account_type': 'ARTIKCLOUD'
   }
   this._request(
     'POST',
@@ -119,7 +119,7 @@ SamiAuth.prototype.signout = function (clientId, redirectUri, onSuccess, onError
   )
 }
 
-SamiAuth.prototype.checkSession = function (token, onSuccess, onError) {
+ArtikCloudAuth.prototype.checkSession = function (token, onSuccess, onError) {
   var formData = {
     'token': token
   }
@@ -139,7 +139,7 @@ SamiAuth.prototype.checkSession = function (token, onSuccess, onError) {
   )
 }
 
-SamiAuth.prototype.getErrorMessageFromResponse = function (response) {
+ArtikCloudAuth.prototype.getErrorMessageFromResponse = function (response) {
   if ('data' in response && 'code' in response.data && 'message' in response.data) {
     return '[' + response.data.code + '] ' + response.data.message
   } else {
@@ -147,9 +147,9 @@ SamiAuth.prototype.getErrorMessageFromResponse = function (response) {
   }
 }
 
-SamiAuth.prototype._request = function (method, path, body, contentType, onSuccess, onError) {
+ArtikCloudAuth.prototype._request = function (method, path, body, contentType, onSuccess, onError) {
   logger.log('debug', '===============')
-  logger.log('debug', 'SAMI AUTH REQUEST')
+  logger.log('debug', 'ARTIKCLOUD AUTH REQUEST')
   logger.log('debug', '  - Method: ' + method)
   logger.log('debug', '  - Endpoint: ' + this._authProtocol + '://' + this._authHost + ':' + this._authPort + this._authPathPrefix + path)
   if (body) {
