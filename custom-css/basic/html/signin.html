@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>ACME Home</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="content">
+    <h2>Sign in to ACME</h2>
+    <div>
+      We use <a href="https://www.artik.cloud">ARTIK Cloud</a> to secure and save your data. Sign in with your ARTIK Cloud account.
+    </div>  
+
+    <iframe id="artikcloud-iframe-signin" frameborder="0" src="{{ authUrl }}/authorize?test_css_blank={{ testCSS }}&response_type=code&account_type=ARTIKCLOUD&redirect_uri=http://localhost:4444/redirect"></iframe>
+  
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    var CLIENT_ID = "{{ clientId }}"
+    $("iframe").each(function() {
+       var _src = $(this).attr("src");
+       $(this).attr("src", _src + '&client_id='+CLIENT_ID)
+    });
+
+    document.getElementById('artikcloud-iframe-signin').onload = function() {
+      try {
+        // only possible when in same root domain
+        if (this.contentWindow && this.contentWindow.location && this.contentWindow.location.href.startsWith("http://localhost:4444/")) {
+          window.location.href = "/"
+        }
+      } catch(e) {
+      }
+    }
+  </script>
+
+</body>
+
+</html>

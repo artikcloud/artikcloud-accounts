@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>ACME Account created</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="content">
+    <h2>You're account has been created</h2>
+    <h3>Check your email and activate your account!</h3>
+    <div>
+      You should have received an email to activate your account (for security reason we check that you are the real owner of the email address).
+    </div>  
+    <div>
+      <form method="POST" action="{{ accountUrl }}">
+        If you did not receive an email you can resend the activation email:
+          <input type="text" name="username" placeholder="email" size="30"/>
+          <input type="submit" value="Resend"/>
+      </form>
+    </div>  
+    <a href="/">back</a>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</body>
+
+</html>

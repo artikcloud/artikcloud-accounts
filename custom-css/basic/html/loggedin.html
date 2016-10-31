@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>ACME Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>ACME App</h1>
+    <div id="welcome" class="center">
+      <b>Welcome {{ userName }}</b>
+      <ul>
+        <li>id:  {{ userId }}</li>
+        <li>name:  {{ userName }}</li>
+        <li>email:  {{ userEmail }}</li>
+        <li>fullname:  {{ userFullname }}</li>
+      </ul>
+      You can now... do something!
+    </div>  
+    <div class="login-or">
+      OR
+    </div>
+    <div class="login-btn">
+      <form method="POST" action="{{ authUrl }}/signout?redirect_uri=http://localhost:4444/">
+        <button type="submit" class="btn btn-warning">Signout</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    var CLIENT_ID = "{{ clientId }}"
+    $("form").each(function() {
+       var _action = $(this).attr("action");
+       $(this).attr("action", _action + '&client_id='+CLIENT_ID)
+    });
+  </script>
+
+
+</body>
+
+</html>

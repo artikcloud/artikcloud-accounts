@@ -1,0 +1,127 @@
+body {
+  background: #09091a;
+  color: #c0c0c8;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+div.container {
+  background-image: url(http://localhost:4444/acme-logo.png);
+  background-repeat: no-repeat;
+  background-position: 20px 20px;
+  background-size: 60px;
+}
+
+#default-title {
+  display: none;
+}
+
+#default-description {
+  display: none;
+}
+
+.heading-title,
+.heading-description {
+  padding-left: 80px
+}
+
+
+.heading-title {
+  color: #fff;
+}
+
+
+.heading-description {
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.actions .btn {
+  width: 100%;
+}
+
+.actions a.btn::before {
+  content: "or ";
+}
+
+/* SIGN IN */
+#signin #application-title::before {
+  content: "ACME Sign in";
+}
+
+#signin #application-description::before {
+  content: "Sign in is powered by ARTIK Cloud";
+}
+
+/* SIGN UP */
+#signup #application-title::before {
+  content: "ACME Sign up";
+}
+
+#signup #application-description::before {
+  content: "Sign up is powered by ARTIK Cloud. We secure and store your data on the ARTIK Cloud platform: https://www.artik.cloud.";
+}
+
+/* FORGOT PASSWORD */
+#forgotpassword #application-title::before {
+  content: "ACME Forgot Password";
+}
+
+#forgotpassword #application-description::before {
+  content: "Did you forget your password? We will send a message to your email with instructions on how to reset password.";
+}
+
+/* RESET PASSWORD */
+#resetpassword #application-title::before {
+  content: "ACME Reset Password";
+}
+
+#resetpassword #application-description::before {
+  content: "Did you forget your password? We will send a message to your email with instructions on how to reset password.";
+}
+
+
+/* Errors */
+.alert {
+  width: 100%;
+}
+
+
+
+/* FORM customization*/
+
+label {
+  font-weight: normal;
+  font-size: 16px;
+  color: #fff;
+}
+
+.form-control {
+  border-radius: 2px;
+}
+
+a, .btn-link {
+  color: #1fbad6;
+  padding: 10px;
+}
+
+.well {
+  color: #333;
+}
+
+.btn-primary {
+ color: #fff;
+ background-color: #1fbad6;
+ border-color: ##1fbad6;
+}
+
+.btn-lg {
+ border-radius: 4px;
+}
+
+
+.has-error .control-label,
+.has-error .help-block {
+ color:#f00;
+}

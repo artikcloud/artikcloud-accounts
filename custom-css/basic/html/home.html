@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>ACME Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>ACME App</h1>
+    {% if message %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endif %}
+    <div class="login-btn">
+      <a class="btn btn-primary" href="{{ authUrl }}/authorize?test_css_blank={{ testCSS }}&response_type=code&account_type=ARTIKCLOUD&redirect_uri=http://localhost:4444/redirect"><span class="glyphicon glyphicon-envelope login-icon" aria-hidden="true"></span>Sign in with your email</a>
+    </div>
+    <div class="login-or">
+      OR
+    </div>
+    <div class="login-btn">
+      <a class="btn btn-default" href="{{ authUrl }}/authorize?response_type=code&account_type=SAMSUNG&redirect_uri=http://localhost:4444/redirect"><img class="login-icon" src="samsungCi.png"> Connect with Samsung</a>
+    </div>
+    <div class="login-or">
+      <hr/>
+      Don't have an account yet?
+    </div>
+    <div class="login-btn">
+      <a class="btn btn-lg btn-primary" href="{{ authUrl }}/signup?test_css_blank={{ testCSS }}&response_type=code&account_type=ARTIKCLOUD&redirect_uri=http://localhost:4444/signupdone">Sign up</a>
+    </div>
+    <div class="login-or">
+      <hr/>
+      TEST PURPOSE: try to signin with an iframe
+    </div>
+    <div class="login-btn">
+      <a class="btn btn-default" href="/signin?"><span class="glyphicon glyphicon-envelope login-icon" aria-hidden="true"></span>Sign in with your email in an iframe</a>
+    </div>
+  </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    var CLIENT_ID = "{{ clientId }}"
+    $(".login-btn a.btn").each(function() {
+       var _href = $(this).attr("href");
+       $(this).attr("href", _href + '&client_id='+CLIENT_ID)
+    });
+  </script>
+
+</body>
+
+</html>
