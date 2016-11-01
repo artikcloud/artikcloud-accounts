@@ -17,10 +17,11 @@ npm install
 
 ## Install Node Modules
 
-- You must have the following modules installed
-npm install winston
-npm install express
-npm install nunjucks
+- You must have the following modules installed:
+
+npm install winston  
+npm install express  
+npm install nunjucks  
 npm install body-parser
 
 ## Configuration
