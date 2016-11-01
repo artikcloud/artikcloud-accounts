@@ -15,6 +15,14 @@ https://developer.artik.cloud/documentation/introduction/accounts.html
 npm install
 ```
 
+## Install Node Modules
+
+- You must have the following modules installed
+npm install winston
+npm install express
+npm install nunjucks
+npm install body-parser
+
 ## Configuration
 
 In config.json
