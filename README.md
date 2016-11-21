@@ -1,7 +1,7 @@
-# ARTIK Cloud Accounts Sample Code
+# ARTIK Cloud Accounts sample web application
 
-This Node.js application is a small web server that provides OAuth2 flow and REST communication with ARTIK Cloud. 
-It will demonstrate how to sign in/sign up/sign out a user and reset the user's password. 
+This Node.js application is a small web server. It demonstrates how to use ARTIK Cloud Accounts to sign in/sign up/sign out a user and reset the user's password. 
+
 An example using an iframe for sign-in is also provided.
 For more information on this feature, go to our documentation page:
 https://developer.artik.cloud/documentation/introduction/accounts.html
@@ -14,15 +14,6 @@ https://developer.artik.cloud/documentation/introduction/accounts.html
 ```bash
 npm install
 ```
-
-## Install Node Modules
-
-You must have the following modules installed:
-
-- npm install winston
-- npm install express  
-- npm install nunjucks  
-- npm install body-parser
 
 ## Configuration
 
