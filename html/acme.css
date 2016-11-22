@@ -1,0 +1,19 @@
+.padd {
+  margin-left: 80px;
+  margin-bottom: 40px;
+}
+.login-btn {
+  padding: 20px;
+}
+.center {
+  text-align: center;
+}
+#welcome ul {
+  list-style: none;
+}
+
+#artikcloud-iframe-signin {
+    background: #c0ccd2;
+    width: 600px;
+    height: 400px;
+}

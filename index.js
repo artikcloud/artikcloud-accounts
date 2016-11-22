@@ -66,10 +66,10 @@ LoginServer.prototype._defineRoutes = function () {
             function (user) {
               logger.info(user.data.data)
               res.render('loggedin.html', {
-                userName: user.data.data.name,
-                userFullname: user.data.data.fullName,
-                userEmail: user.data.data.email,
-                userId: user.data.data.id,
+                userName: user.data.name,
+                userFullname: user.data.fullName,
+                userEmail: user.data.email,
+                userId: user.data.id,
                 authUrl: localThis._config.authUrl,
                 testCSS: localThis._config.testCSS,
                 clientId: localThis._config.clientId
@@ -86,6 +86,7 @@ LoginServer.prototype._defineRoutes = function () {
         function () {
           logger.warn('Invalid token')
           res.redirect('/home')
+        // res.redirect(localThis._config.authUrl + '/authorize?test_css_blank=' + localThis._config.testCSS + '&response_type=code&account_type=ALL&redirect_uri=http://localhost:4444/redirect&clientId='+localThis._config.clientId)
         }
       )
     }
@@ -117,15 +118,17 @@ LoginServer.prototype._defineRoutes = function () {
    * '/signout' -> Call signout and erase token
    */
   this._app.get('/signout', function (req, res) {
-    localThis._artikcloudApi.setToken(null)
+    logger.info('set null in token')
+    localThis._artikcloudApi.setToken('')
     localThis.saveToken()
     localThis._artikcloudAuth.signout(localThis._config.clientId,
       'http://' + localThis._config.host + ':' + localThis._config.port + '/redirect',
       function (response) {
+        logger.info('signout response: ' + JSON.stringify(response))
         res.redirect('/')
       },
       function (error) {
-        logger.error('cant signout: ' + error)
+        logger.error('cant signout: ' + JSON.stringify(error))
         res.redirect('/')
       }
     )

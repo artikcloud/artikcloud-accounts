@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>ACME Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="blank.css">
+    <link rel="stylesheet" href="acme.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1 class="padd">ACME Application</h1>
+    <div class="center">
+      <p>An ARTIK Cloud account sample application</p>
+      <iframe id="artikcloud-iframe-signin" frameborder="0" src="{{ authUrl }}/authorize?test_css_blank={{ testCSS }}&response_type=code&account_type=ARTIKCLOUD&redirect_uri=http://localhost:4444/redirect&client_id={{ clientId }}"></iframe>
+    </div>
+  
+  </div>
+
+  <script>
+    document.getElementById('artikcloud-iframe-signin').onload = function() {
+      try {
+        // only possible when in same root domain
+        if (this.contentWindow && this.contentWindow.location && this.contentWindow.location.href.startsWith("http://localhost:4444/")) {
+          window.location.href = "/"
+        }
+      } catch(e) {
+      }
+    }
+  </script>
+
+</body>
+
+</html>

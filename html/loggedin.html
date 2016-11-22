@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>ACME Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="blank.css">
+    <link rel="stylesheet" href="acme.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="padd">ACME Application</h1>
+    <div id="welcome" class="center">
+      <b>Welcome {{ userFullname }}</b>
+      <ul>
+        <li>email:  {{ userEmail }}</li>
+        <li>fullname:  {{ userFullname }}</li>
+        <li>id:  {{ userId }}</li>
+      </ul>
+      You can now... do something!
+    </div>  
+    <div class="login-btn center">
+      <form method="POST" action="{{ authUrl }}/signout?redirect_uri=http://localhost:4444/signout&client_id={{ clientId }}">
+        <button type="submit" class="btn btn-warning">Signout</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>
