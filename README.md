@@ -29,11 +29,13 @@ npm install
 
 ## Usage
 
-1. Run the command in the terminal:
-```bash
-node index.js config.json
-```
-2. In your browser, load http://localhost:4444
+ 1. Run the command in the terminal:
+
+  ```bash
+  node index.js config.json
+  ```
+
+ 2. In your browser, load http://localhost:4444
 
 ## Content
  - '/' -> link to sign in, connect to Samsung and sign up
