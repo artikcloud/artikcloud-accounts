@@ -1,6 +1,6 @@
 # ARTIK Cloud Accounts sample web application
 
-This Node.js application is a small web server. It demonstrates how to use ARTIK Cloud Accounts to sign in/sign up/sign out a user and reset the user's password. 
+This Node.js sample application is a small web server. It demonstrates how to use ARTIK Cloud Accounts to sign in/sign up/sign out a user and reset the user's password. 
 
 An example using an iframe for sign-in is also provided.
 For more information on this feature, go to our documentation page:
@@ -41,3 +41,21 @@ npm install
  - '/' -> link to sign in, connect to Samsung and sign up
  - '/signin' -> example of iframe usage with account form
  - in sign in form, you can test the link to forgot password
+More about ARTIK Cloud
+---------------
+
+If you are not familiar with ARTIK Cloud, we have extensive documentation at https://developer.artik.cloud/documentation
+
+The full ARTIK Cloud API specification can be found at https://developer.artik.cloud/documentation/api-reference/
+
+Peek into advanced sample applications at https://developer.artik.cloud/documentation/samples/
+
+To create and manage your services and devices on ARTIK Cloud, visit the Developer Dashboard at https://developer.artik.cloud
+
+License and Copyright
+---------------------
+
+Licensed under the Apache License. See [LICENSE](LICENSE).
+
+Copyright (c) 2016 Samsung Electronics Co., Ltd.
+
