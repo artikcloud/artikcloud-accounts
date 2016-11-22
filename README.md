@@ -41,6 +41,7 @@ npm install
  - '/' -> link to sign in, connect to Samsung and sign up
  - '/signin' -> example of iframe usage with account form
  - in sign in form, you can test the link to forgot password
+
 More about ARTIK Cloud
 ---------------
 
