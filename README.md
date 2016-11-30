@@ -2,7 +2,6 @@
 
 This Node.js sample application is a small web server. It demonstrates how to use ARTIK Cloud Accounts to sign in/sign up/sign out a user and reset the user's password. 
 
-An example using an iframe for sign-in is also provided.
 For more information on this feature, go to our documentation page:
 https://developer.artik.cloud/documentation/introduction/accounts.html
 
