@@ -86,7 +86,6 @@ LoginServer.prototype._defineRoutes = function () {
         function () {
           logger.warn('Invalid token')
           res.redirect('/home')
-        // res.redirect(localThis._config.authUrl + '/authorize?test_css_blank=' + localThis._config.testCSS + '&response_type=code&account_type=ALL&redirect_uri=http://localhost:4444/redirect&clientId='+localThis._config.clientId)
         }
       )
     }
@@ -228,12 +227,8 @@ LoginServer.prototype._defineRoutes = function () {
 
       res.render('error.html', errors)
     } else if (req.query.origin) { // default redirect at the end of a successful operation
-      if (req.query.origin === 'resendactivation' ||
-        req.query.origin === 'signup') {
-        res.redirect('/signupdone', {
-          authUrl: localThis._config.authUrl,
-          testCSS: localThis._config.testCSS
-        })
+      if (req.query.origin === 'resendactivation') {
+        res.redirect('/signupdone')
       } else if (req.query.origin === 'forgotpassword') {
         res.render('home.html', {
           authUrl: localThis._config.authUrl,

@@ -11,16 +11,19 @@ div.container {
   background-repeat: no-repeat;
   background-position: 20px 20px;
   background-size: 60px;
-  max-width: 800px;
+  max-width: 600px;
+  padding: 20px;
 }
 
 #default-title {
   display: none;
 }
 
+
 #default-description {
   display: none;
 }
+
 .heading-title,
 .heading-description {
   padding-left: 80px
@@ -38,35 +41,29 @@ h1, .heading-title {
   margin-bottom: 10px;
 }
 
+.powered-by {
+  text-align: center;
+}
+.powered-by img {
+  margin-top: 20px;
+  width: 250px;
+}
+
+
 /* SIGN IN */
-.header-login {
-  padding-left: 80px;
+.page-signin #application-title::before {
+  content: "Sign in";
 }
 
-.header-login-logo {
-  font-size: 0px;
-}
-
-.header-login-title {
-  font-size: 0px;
-  color: #888;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.header-login-title::before {
-  font-size: 12px;
+.page-signin #application-description::before {
   content: "An ARTIK Cloud sample application";
 }
 
-.header-login-logo::before {
-  content: "ACME Sign in";
-  font-size: 32px;
+.side-panel {
+  text-align: center;
+  padding-top: 30px;
 }
 
-.signin-alternative {
-  text-align: center;
-}
 
 .signin-form-container {
   padding: 0px 30px;
@@ -77,25 +74,79 @@ h1, .heading-title {
     border-right: 1px solid #aaa;
 }
 
-#signin #application-title::before {
-  font-size: 16px;
+.content:not(.no-side-panel) .account-form {
+  margin-top: 20px;
+}
+.content:not(.no-side-panel) .account-form:before {
+  content: "or sign in with your email";
   color: #333;
-  content: "Sign in with your email";
+  font-size: 16px;
+  line-height: 40px;
 }
 
-#signin #application-description { 
-  display: none;
+.content:not(.no-side-panel) #signin .form-inputs {
+  margin-top: 10px;
 }
-#signin #application-description::before {
-  content: "An ARTIK Cloud sample application";
+
+
+/* Multi identity providers side panel */
+ul.list-unstyled {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.side-panel .btn {
+  margin: 5px auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #555;
+  background-repeat: no-repeat;
+  background-position: 30px center;
+  width: 300px;
+  text-align: left;
+  padding-left: 80px;
+  border: 1px solid #4a6477;
+  background-color: #fff;
+}
+
+
+.side-panel .btn {
+  font-size: 0px;
+}
+.side-panel .btn:after {
+  font-size: 14px;
+}
+
+
+.side-panel .btn_SAMSUNG {
+  background-image: url(http://localhost:4444/samsungCi.png);
+  background-position: 10px center;
+}
+
+.side-panel .btn_GOOGLE {
+  background-image: url(http://localhost:4444/googleCi.png);
+}
+.side-panel .btn_NAVER {
+  background-image: url(http://localhost:4444/naverCi.png);
+}
+
+.side-panel .btn_SAMSUNG:after {
+  content: "Connect with Samsung";
+}
+.side-panel .btn_GOOGLE:after {
+  content: "Connect with Google";
+}
+.side-panel .btn_NAVER:after {
+  content: "Connect with Naver";
 }
 
 /* SIGN UP */
-#signup #application-title::before {
+.page-signup #application-title::before {
   content: "ACME Sign up";
 }
 
-#signup #application-description::before {
+.page-signup #application-description::before {
   content: "An ARTIK Cloud sample application.";
 }
 
@@ -108,22 +159,56 @@ h1, .heading-title {
   margin: 0px;
 }
 
+.content:not(.no-side-panel) #signup {
+  margin-top: 50px;
+}
+
+.content:not(.no-side-panel) #signup:before {
+  content: "or sign up with your email";
+  color: #333;
+  font-size: 16px;
+}
+
+.content:not(.no-side-panel) #signup .form-inputs {
+  margin-top: 10px;
+}
+
 /* FORGOT PASSWORD */
-#forgotpassword #application-title::before {
+.page-forgotpassword #application-title::before {
   content: "ACME Forgot Password";
 }
 
-#forgotpassword #application-description::before {
+.page-forgotpassword #application-description::before {
   content: "Did you forget your password? No worry, that happens to the best of us. We can help you, we will send a message to your email with instructions on how to reset password.";
 }
 
 /* RESET PASSWORD */
-#resetpassword #application-title::before {
+.page-resetpassword #application-title::before {
   content: "ACME Reset Password";
 }
 
-#resetpassword #application-description::before {
+.page-resetpassword #application-description::before {
   content: "Did you forget your password? No worry, that happens to the best of us. We can help you, we will send a message to your email with instructions on how to reset password.";
+}
+
+/* CHANGE PASSWORD */
+.page-changepassword #application-title::before {
+  content: "ACME Change Password";
+}
+
+.page-changepassword #application-description::before {
+  content: "";
+}
+
+/* CHANGE EMAIL */
+.page-changeemail #application-title::before {
+  content: "ACME Change Email";
+}
+
+
+/* OTHER PAGES */
+.page-message .container {
+  padding-top:100px;
 }
 
 
@@ -142,55 +227,6 @@ h1, .heading-title {
   margin-top: 5px;
 }
 
-/* Multi identity providers */
-ul.third-party-identity-providers {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.identity-provider-btn {
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 14px;
-  color: #333;
-  background-repeat: no-repeat;
-  background-position: 30px center;
-  width: 270px;
-  text-align: left;
-  padding-left: 80px;
-}
-
-
-.identity-provider-btn {
-  font-size: 0px;
-}
-
-.identity-provider-samsung .identity-provider-btn {
-  background-image: url(http://localhost:4444/samsungCi.png);
-  background-position: 15px center;
-}
-
-.identity-provider-google .identity-provider-btn {
-  background-image: url(http://localhost:4444/googleCi.png);
-}
-.identity-provider-naver .identity-provider-btn {
-  background-image: url(http://localhost:4444/naverCi.png);
-}
-
-.identity-provider-btn:after {
-  font-size: 14px;
-}
-
-.identity-provider-samsung .identity-provider-btn:after {
-  content: "Connect with Samsung";
-}
-.identity-provider-naver .identity-provider-btn:after {
-  content: "Connect with Naver";
-}
-.identity-provider-google .identity-provider-btn:after {
-  content: "Connect with Google";
-}
 
 /* FORM customization*/
 
@@ -230,9 +266,9 @@ a, .btn-link {
  padding: 10px;
 }
 
-
 .has-error .control-label,
 .has-error .help-block {
  color:#c11717;
 }
+
 
