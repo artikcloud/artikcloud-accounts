@@ -1,12 +1,12 @@
 # ARTIK Cloud Accounts sample web application
 
-This Node.js sample application is a small web server. It demonstrates how to use ARTIK Cloud Accounts to sign in/sign up/sign out a user and reset the user's password. 
+The Node.js web application demonstrates how to sign in/sign up/sign out a user and reset the user's password with and without an IFrame. In addition, blank.css demonstrates how to customize the forms when using ARTIK Cloud Account as the identity provider.
 
 For more information on this feature, go to our documentation page:
 https://developer.artik.cloud/documentation/introduction/accounts.html
 
 ## Prerequisites
-* Node v12+
+* Node v0.12.x or above
 
 ## Setup / Installation:
 * Execute the command to install node modules
@@ -15,6 +15,7 @@ npm install
 ```
 * Configure your application in the [Developer Dashboard](https://developer.artik.cloud/dashboard) as following:
   * Set "Redirect URL" to “http://localhost:4444/redirect”.
+  * Set "AUTHORIZATION METHODS" to "Client Credentials, auth code", which is sufficient since the app does not use Implicit Method.
   * Under "PERMISSIONS", set "Profile" to "Read". You should also set it to "Write" if you want the application to modify the user's profile.
 * Set config.json:
   * clientId: your application ID (client ID)
@@ -37,9 +38,13 @@ npm install
  2. In your browser, load http://localhost:4444
 
 ## Content
- - '/' -> link to sign in, connect to Samsung and sign up
- - '/signin' -> example of iframe usage with account form
- - in sign in form, you can test the link to forgot password
+
+ - "localhost:4444/": provide a page where you can sign in with four identity providers (with or without iFrame).
+ - "localhost:4444/signin": sign in using ARTIK Cloud Account as the identity provider with IFrame. In the form, you can go to "forgot password" and "sign up".
+
+## More examples
+
+Peek into "Android OAuth starter" in [Tutorials](https://developer.artik.cloud/documentation/tutorials/) for more examples.
 
 More about ARTIK Cloud
 ---------------
