@@ -35,7 +35,8 @@ npm install
   node index.js config.json
   ```
 
- 2. In your browser, load http://localhost:4444
+ 2. In your browser, load http://localhost:4444 . Then you will be able to play with sign in/sign up/sign out et al.
+ 3. File html/blank.css is an example of form customization. To see the customized pages, set 'testCSS' in config.json to true as mentioned in the *Setup / Installation*. Navigate to a sign in/sign up/sign out page, and then apply the content of html/blank.css to the local blank.css in your browser. Now you should see the customized page. Consult the browser documentation to learn how to override local blank.css file.  
 
 ## Content
 
