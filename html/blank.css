@@ -179,7 +179,7 @@ ul.list-unstyled {
 }
 
 .page-forgotpassword #application-description::before {
-  content: "Did you forget your password? No worry, that happens to the best of us. We can help you, we will send a message to your email with instructions on how to reset password.";
+  content: "Did you forget your password? No worry, that happens to the most of us. We can help you, we will send a message to your email with instructions on how to reset password.";
 }
 
 /* RESET PASSWORD */
@@ -188,7 +188,7 @@ ul.list-unstyled {
 }
 
 .page-resetpassword #application-description::before {
-  content: "Did you forget your password? No worry, that happens to the best of us. We can help you, we will send a message to your email with instructions on how to reset password.";
+  content: "Did you forget your password? No worry, that happens to the most of us. We can help you, we will send a message to your email with instructions on how to reset password.";
 }
 
 /* CHANGE PASSWORD */
