@@ -15,7 +15,7 @@ npm install
 ```
 * Configure your application in the [Developer Dashboard](https://developer.artik.cloud/dashboard) as following:
   * Set "Redirect URL" to “http://localhost:4444/redirect”.
-  * Set "AUTHORIZATION METHODS" to "Client Credentials, auth code", which is sufficient since the app does not use Implicit Method.
+  * Set "AUTHORIZATION METHODS" to "Authorization Code (With Secret)"
   * Under "PERMISSIONS", set "Profile" to "Read". You should also set it to "Write" if you want the application to modify the user's profile.
 * Set config.json:
   * clientId: your application ID (client ID)
